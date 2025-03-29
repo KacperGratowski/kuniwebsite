@@ -24,7 +24,7 @@ body {
 /* Hero (nagłówek) */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 80vh; /* zmniejszone z 100vh */
   background: linear-gradient(135deg, #ff416c, #ff4b2b, #ff416c);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
@@ -62,8 +62,8 @@ body {
 }
 
 .hero-content img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   border: 5px solid #fff;
   box-shadow: 0 0 30px rgba(255,255,255,0.7);
@@ -78,7 +78,7 @@ body {
 
 .hero-title {
   font-family: 'Permanent Marker', cursive;
-  font-size: 4rem;
+  font-size: 3.5rem;
   margin-bottom: 10px;
   color: #ffe600;
   text-shadow: 3px 3px 8px #000;
@@ -91,7 +91,7 @@ body {
 }
 
 .hero-tagline {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   margin-bottom: 20px;
   color: #ddd;
 }
@@ -144,7 +144,56 @@ section h2::after {
   color: #ddd;
 }
 
-/* Karty */
+/* Panel wyróżnionej piosenki */
+.featured-song {
+  background: #1e1e1e;
+  padding: 40px 0;
+  border: 2px solid #ff6f61;
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
+
+.featured-song h2 {
+  margin-bottom: 20px;
+}
+
+.featured-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-content img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s;
+}
+
+.featured-content:hover img {
+  transform: scale(1.05);
+}
+
+.song-info h3 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #ffe600;
+}
+
+.song-info p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+/* Karty z piosenkami */
 .card-grid {
   display: flex;
   flex-wrap: wrap;
