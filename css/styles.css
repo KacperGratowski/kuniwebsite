@@ -1,136 +1,155 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Reset stylów */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ustawienia podstawowe */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(135deg, #ff5f6d, #ffc371, #ff5f6d);
-  background-size: 600% 600%;
-  animation: animatedBackground 25s ease infinite;
-  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  background: #23272a;
+  color: #ffffff;
+  line-height: 1.6;
 }
-@keyframes animatedBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+
+/* Kontener */
 .container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
-.profile {
+
+/* Styl nagłówka */
+header {
+  background: #2c2f33;
+  padding: 40px 0;
   text-align: center;
-  margin-bottom: 30px;
+  border-bottom: 2px solid #7289da;
 }
-.profile img {
-  width: 140px;
-  height: 140px;
+
+header .profile img {
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 4px dashed #fff;
-  object-fit: cover;
+  border: 4px solid #7289da;
+  margin-bottom: 20px;
 }
-.profile h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 2.8rem;
-  margin: 15px 0;
-  color: #ffcc00;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+
+header .profile h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #99aab5;
 }
-.profile p {
+
+header .profile p {
   font-size: 1.1rem;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.5;
-  color: #f0e68c;
+  margin-bottom: 20px;
+  color: #b9bbbe;
 }
-.status {
-  text-align: center;
-  margin-bottom: 30px;
+
+/* Ikony społecznościowe */
+.socials {
+  margin-top: 10px;
 }
+
+.socials a {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #99aab5;
+  transition: color 0.3s;
+}
+
+.socials a:hover {
+  color: #7289da;
+}
+
+/* Styl głównej zawartości */
+main {
+  padding: 40px 0;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #7289da;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: #99aab5;
+}
+
+/* Sekcja statusu */
 .status p {
   font-size: 1.2rem;
-  color: #ffcc00;
-  font-weight: 600;
+  margin: 10px 0;
+  color: #b9bbbe;
 }
-.status span { color: #ffa500; }
-.section { margin-bottom: 40px; }
-.section h2 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-  padding-bottom: 5px;
-  color: #ffcc00;
-  border-bottom: 2px solid #ffcc00;
-}
+
+/* Karty z treścią */
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
 }
+
 .card {
-  background: rgba(255,255,255,0.15);
+  background: #2c2f33;
+  border: 1px solid #7289da;
   border-radius: 10px;
-  padding: 10px;
-  width: 220px;
+  overflow: hidden;
+  width: 280px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .card:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
+
 .card img {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-.card a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.card a:hover {
-  color: #ffa500;
-}
-.miraculous-section .card-grid { justify-content: center; }
-.miraculous-card { width: 850px; }
-.miraculous-card img {
-  width: 100%;
   height: auto;
-  border-radius: 10px;
+  display: block;
 }
-.miraculous-card p {
+
+.card p {
+  padding: 15px;
   font-size: 1rem;
-  margin-top: 10px;
-  line-height: 1.5;
+  color: #b9bbbe;
 }
-.socials {
+
+.card a {
+  color: #7289da;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* Specyficzny styl dla karty w sekcji serialu */
+.series-card {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Styl stopki */
+footer {
+  background: #2c2f33;
   text-align: center;
-  margin: 20px 0 40px;
+  padding: 20px 0;
+  border-top: 2px solid #7289da;
+  margin-top: 40px;
 }
-.socials a {
-  margin: 0 15px;
-  font-size: 1.8rem;
-  color: #ffcc00;
-  transition: transform 0.3s, color 0.3s;
-}
-.socials a:hover {
-  transform: scale(1.1);
-  color: #ffa500;
-}
-.footer {
-  text-align: center;
-  margin-top: 30px;
+
+footer p {
   font-size: 0.9rem;
-  color: #d3d3d3;
+  color: #b9bbbe;
 }
