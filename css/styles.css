@@ -70,12 +70,6 @@ body {
   margin-bottom: 20px;
   animation: spinSlow 20s linear infinite;
 }
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 .hero-title {
   font-family: 'Permanent Marker', cursive;
   font-size: 3.5rem;
