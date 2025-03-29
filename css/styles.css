@@ -5,151 +5,196 @@
   box-sizing: border-box;
 }
 
-/* Ustawienia podstawowe */
+/* Podstawowe ustawienia */
 body {
   font-family: 'Poppins', sans-serif;
-  background: #23272a;
-  color: #ffffff;
+  background: #1a1a1d;
+  color: #fff;
   line-height: 1.6;
 }
 
 /* Kontener */
 .container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Styl nagłówka */
-header {
-  background: #2c2f33;
-  padding: 40px 0;
+/* Hero (nagłówek) */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: radial-gradient(circle, #ff5f6d, #ffc371);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border-bottom: 2px solid #7289da;
+  overflow: hidden;
 }
 
-header .profile img {
-  width: 150px;
-  height: 150px;
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content img {
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  border: 4px solid #7289da;
+  border: 5px solid #fff;
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
   margin-bottom: 20px;
+  animation: spin 10s linear infinite;
 }
 
-header .profile h1 {
-  font-size: 2.5rem;
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-content h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
   margin-bottom: 10px;
-  color: #99aab5;
+  color: #fffd82;
+  text-shadow: 2px 2px 5px #000;
 }
 
-header .profile p {
-  font-size: 1.1rem;
+.hero-content p {
+  font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #b9bbbe;
+  color: #e0e0e0;
 }
 
 /* Ikony społecznościowe */
 .socials {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .socials a {
-  margin: 0 10px;
-  font-size: 1.5rem;
-  color: #99aab5;
-  transition: color 0.3s;
+  margin: 0 15px;
+  font-size: 2rem;
+  color: #fffd82;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .socials a:hover {
-  color: #7289da;
+  transform: scale(1.2);
+  color: #ff9f1c;
 }
 
-/* Styl głównej zawartości */
-main {
-  padding: 40px 0;
-}
-
-section {
-  margin-bottom: 40px;
-}
-
+/* Tytuły sekcji */
 section h2 {
-  font-size: 2rem;
+  font-family: 'Rock Salt', cursive;
+  font-size: 2.5rem;
   margin-bottom: 20px;
-  border-bottom: 2px solid #7289da;
+  text-align: center;
+  color: #fffd82;
+  text-shadow: 2px 2px 3px #000;
+  position: relative;
   display: inline-block;
-  padding-bottom: 5px;
-  color: #99aab5;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 3px;
+  background: #ff9f1c;
+  margin: 10px auto 0;
+}
+
+/* Sekcje */
+section {
+  padding: 40px 0;
 }
 
 /* Sekcja statusu */
 .status p {
-  font-size: 1.2rem;
-  margin: 10px 0;
-  color: #b9bbbe;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #e0e0e0;
 }
 
-/* Karty z treścią */
+/* Siatka kart */
 .card-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
+/* Karty */
 .card {
-  background: #2c2f33;
-  border: 1px solid #7289da;
-  border-radius: 10px;
+  background: #2c2c54;
+  border: 2px solid #ff9f1c;
+  border-radius: 15px;
   overflow: hidden;
-  width: 280px;
-  text-align: center;
+  width: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover img {
+  transform: scale(1.1);
 }
 
 .card p {
   padding: 15px;
-  font-size: 1rem;
-  color: #b9bbbe;
+  font-size: 1.1rem;
+  color: #fffd82;
+  text-align: center;
 }
 
 .card a {
-  color: #7289da;
+  color: #fffd82;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
 .card a:hover {
-  text-decoration: underline;
+  color: #ff9f1c;
 }
 
-/* Specyficzny styl dla karty w sekcji serialu */
+/* Specjalny styl dla karty w sekcji serialu */
 .series-card {
   width: 100%;
   max-width: 600px;
 }
 
-/* Styl stopki */
+/* Stopka */
 footer {
-  background: #2c2f33;
+  background: #2c2c54;
   text-align: center;
   padding: 20px 0;
-  border-top: 2px solid #7289da;
+  border-top: 3px solid #ff9f1c;
   margin-top: 40px;
 }
 
 footer p {
-  font-size: 0.9rem;
-  color: #b9bbbe;
+  font-size: 1rem;
+  color: #e0e0e0;
 }
