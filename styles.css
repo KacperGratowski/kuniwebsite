@@ -1,0 +1,876 @@
+/* Miraculous Theme - Variables */
+:root {
+  --ladybug-red: #F80000;
+  --ladybug-red-light: #FF3333;
+  --cat-noir-black: #111111;
+  --cat-noir-green: #ADFD00;
+  --cat-noir-green-light: #C2FF33;
+  --marinette-pink: #F078A8;
+  --adrien-yellow: #FFD66B;
+  --background-dark: #0F0F1A;
+  --text-light: #FFFFFF;
+  --text-dark: #222222;
+  --shadow-light: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-light);
+  background-color: var(--background-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Background Styles */
+.miraculous-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, var(--ladybug-red) 8px, transparent 8px),
+    radial-gradient(circle, var(--cat-noir-green) 5px, transparent 5px),
+    radial-gradient(circle, var(--marinette-pink) 3px, transparent 3px);
+  background-size: 100px 100px, 80px 80px, 60px 60px;
+  background-position: 0 0, 40px 40px, 20px 20px;
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* Kwami Navigation */
+.kwami-nav {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kwami {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.kwami img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.kwami.tikki {
+  border: 2px solid var(--ladybug-red);
+}
+
+.kwami.plagg {
+  border: 2px solid var(--cat-noir-green);
+}
+
+.kwami.trixx {
+  border: 2px solid #FF8C00;
+}
+
+.kwami.pollen {
+  border: 2px solid #FFCC00;
+}
+
+.kwami.wayzz {
+  border: 2px solid #00A86B;
+}
+
+.kwami:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Section - Miraculous Box */
+.miraculous-box {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1A1A2F 0%, #13131F 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.miraculous-box::before {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background-image: 
+    radial-gradient(circle, var(--ladybug-red) 8px, transparent 8px);
+  background-size: 100px 100px;
+  background-position: 0 0;
+  opacity: 0.1;
+  animation: rotateBackground 120s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateBackground {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.inner-box {
+  background: rgba(15, 15, 26, 0.8);
+  border-radius: 20px;
+  padding: 60px;
+  width: 90%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 30px rgba(248, 0, 0, 0.3),
+    0 0 60px rgba(173, 253, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 3px solid;
+  border-image: linear-gradient(45deg, var(--ladybug-red), var(--cat-noir-green)) 1;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-container {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 4px solid #fff;
+  box-shadow: 
+    0 0 0 4px var(--ladybug-red),
+    0 0 0 8px var(--cat-noir-green),
+    0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  border: 5px dotted var(--ladybug-red);
+  animation: spinBorder 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.miraculous-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3.5rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+  text-shadow: 
+    0 0 10px rgba(248, 0, 0, 0.7),
+    0 0 20px rgba(173, 253, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+.miraculous-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.miraculous-socials {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-icon.ladybug {
+  background-color: var(--ladybug-red);
+  color: white;
+  box-shadow: 0 0 10px var(--ladybug-red);
+}
+
+.social-icon.cat {
+  background-color: var(--cat-noir-black);
+  color: var(--cat-noir-green);
+  box-shadow: 0 0 10px var(--cat-noir-green);
+}
+
+.social-icon:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.social-icon.ladybug:hover {
+  box-shadow: 0 0 20px var(--ladybug-red);
+}
+
+.social-icon.cat:hover {
+  box-shadow: 0 0 20px var(--cat-noir-green);
+}
+
+.miraculous-status {
+  background-color: rgba(248, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 10px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--ladybug-red);
+}
+
+.heart-icon {
+  font-size: 1.5rem;
+  animation: heartbeat 1.5s ease infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Section Styles */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+}
+
+.section-title.ladybug {
+  color: var(--ladybug-red);
+  text-shadow: 0 0 10px rgba(248, 0, 0, 0.5);
+}
+
+.section-title.cat {
+  color: var(--cat-noir-green);
+  text-shadow: 0 0 10px rgba(173, 253, 0, 0.5);
+}
+
+.section-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* About Section */
+.about-section {
+  background-color: rgba(15, 15, 26, 0.7);
+  position: relative;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 0 3px var(--ladybug-red),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: rotate(-3deg);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-text {
+  flex: 2;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+}
+
+.about-text .quote {
+  font-style: italic;
+  color: var(--ladybug-red-light);
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--ladybug-red);
+}
+
+/* Fanfic Section */
+.fanfic-section {
+  background-color: rgba(15, 15, 26, 0.4);
+  position: relative;
+}
+
+.fanfic-card {
+  display: flex;
+  background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(25, 25, 40, 0.8));
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--cat-noir-green);
+}
+
+.fanfic-image {
+  flex: 1;
+  max-width: 300px;
+}
+
+.fanfic-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fanfic-info {
+  flex: 2;
+  padding: 30px;
+}
+
+.fanfic-info h3 {
+  color: var(--cat-noir-green);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.fanfic-info p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.miraculous-button {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--cat-noir-green), var(--cat-noir-green-light));
+  color: var(--text-dark);
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(173, 253, 0, 0.3);
+}
+
+.miraculous-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(173, 253, 0, 0.5);
+}
+
+/* Music Section */
+.music-section {
+  background-color: rgba(15, 15, 26, 0.7);
+}
+
+.featured-song {
+  display: flex;
+  background: linear-gradient(135deg, rgba(248, 0, 0, 0.1), rgba(248, 0, 0, 0.2));
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--ladybug-red);
+}
+
+.song-artwork {
+  position: relative;
+  flex: 1;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.song-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.song-artwork:hover img {
+  transform: scale(1.1);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(248, 0, 0, 0.8);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.song-artwork:hover .play-button {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.song-details {
+  flex: 2;
+  padding: 30px;
+}
+
+.song-details h3 {
+  color: var(--ladybug-red-light);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.spotify-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1DB954;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: transform 0.3s;
+}
+
+.spotify-button:hover {
+  transform: translateY(-3px);
+}
+
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.song-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 250px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.song-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.song-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 20px;
+  transform: translateY(40px);
+  transition: transform 0.3s;
+}
+
+.song-card:hover {
+  transform: translateY(-5px);
+}
+
+.song-card:hover img {
+  transform: scale(1.1);
+}
+
+.song-card:hover .song-overlay {
+  transform: translateY(0);
+}
+
+.song-overlay h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.song-overlay a {
+  color: #1DB954;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.song-overlay a:hover {
+  color: #1ED760;
+}
+
+/* Characters Section */
+.characters-section {
+  background-color: rgba(15, 15, 26, 0.4);
+}
+
+.character-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.character-card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.character-card .card-front,
+.character-card .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character-card .card-front {
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+  border: 2px solid;
+}
+
+.character-card .card-back {
+  background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(30,30,50,0.8));
+  transform: rotateY(180deg);
+  padding: 20px;
+  justify-content: center;
+  gap: 10px;
+  border: 2px solid;
+}
+
+.character-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+
+.character-card:hover .card-back {
+  transform: rotateY(0);
+}
+
+.character-card.marinette .card-front {
+  border-color: var(--marinette-pink);
+}
+
+.character-card.marinette .card-back {
+  border-color: var(--ladybug-red);
+}
+
+.character-card.adrien .card-front {
+  border-color: var(--adrien-yellow);
+}
+
+.character-card.adrien .card-back {
+  border-color: var(--cat-noir-green);
+}
+
+.character-card img {
+  width: auto;
+  height: 70%;
+  object-fit: contain;
+  margin-top: 20px;
+}
+
+.card-front h3 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.transform-icon {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.hero-image {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.card-back h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.card-back p {
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.marinette .transform-icon {
+  background-color: var(--marinette-pink);
+  box-shadow: 0 0 10px var(--marinette-pink);
+}
+
+.adrien .transform-icon {
+  background-color: var(--adrien-yellow);
+  box-shadow: 0 0 10px var(--adrien-yellow);
+}
+
+/* Footer */
+footer {
+  background-color: rgba(10, 10, 20, 0.9);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.miraculous-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, var(--ladybug-red) 2px, transparent 2px),
+    radial-gradient(circle, var(--cat-noir-green) 2px, transparent 2px);
+  background-size: 30px 30px, 30px 30px;
+  background-position: 0 0, 15px 15px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.miraculous-logo {
+  margin-bottom: 20px;
+}
+
+.miraculous-logo img {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Animation Effects */
+.transformation-effect {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(248, 0, 0, 0.8) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: transform-circle 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes transform-circle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(40);
+    opacity: 0;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .section-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-image {
+    margin: 0 auto 30px;
+  }
+  
+  .fanfic-card {
+    flex-direction: column;
+  }
+  
+  .fanfic-image {
+    max-width: 100%;
+    height: 300px;
+  }
+  
+  .featured-song {
+    flex-direction: column;
+  }
+  
+  .song-artwork {
+    max-width: 100%;
+    height: 300px;
+  }
+  
+  .kwami-nav {
+    right: 20px;
+  }
+  
+  .kwami {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner-box {
+    padding: 40px 20px;
+  }
+  
+  .miraculous-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.3rem;
+  }
+  
+  .character-cards {
+    gap: 20px;
+  }
+  
+  .character-card {
+    width: 280px;
+    height: 380px;
+  }
+  
+  .kwami-nav {
+    bottom: 20px;
+    top: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+  }
+  
+  .kwami {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .miraculous-title {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .inner-box {
+    width: 95%;
+  }
+  
+  .fanfic-info h3, .song-details h3 {
+    font-size: 1.5rem;
+  }
+  
+  .character-card {
+    width: 250px;
+    height: 350px;
+  }
+}
