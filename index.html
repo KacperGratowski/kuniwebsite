@@ -8,36 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/miraculous.css">
+  <link rel="stylesheet" href="css/lastfm-widget.css">
+  <link rel="stylesheet" href="css/allies.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <script src="js/translations.js" defer></script>
 </head>
 <body>
   <!-- Tło z kropek biedronki -->
   <div class="miraculous-bg"></div>
   
   <!-- Kwami do nawigacji -->
-  <nav class="kwami-nav">
-    <div class="kwami tikki" title="Strona główna">
+  <nav class="kwami-nav" aria-label="Nawigacja główna">
+    <div class="kwami tikki" title="Strona główna" data-section="hero">
       <a href="#hero" class="kwami-link">
-        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Tikki-1.webp" alt="Tikki">
+        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Tikki-1.webp" alt="Tikki - Strona główna">
       </a>
     </div>
-    <div class="kwami plagg" title="O mnie">
+    <div class="kwami plagg" title="O mnie" data-section="about">
       <a href="#about" class="kwami-link">
-        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Plagg.webp" alt="Plagg">
+        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Plagg.webp" alt="Plagg - O mnie">
       </a>
     </div>
-    <div class="kwami trixx" title="Fanfiction">
-      <a href="#fanfic" class="kwami-link">
-        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Trixx.webp" alt="Trixx">
-      </a>
-    </div>
-    <div class="kwami pollen" title="Muzyka">
+    <div class="kwami pollen" title="Muzyka" data-section="music">
       <a href="#music" class="kwami-link">
-        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Pollen.webp" alt="Pollen">
+        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Pollen.webp" alt="Pollen - Muzyka">
       </a>
     </div>
-    <div class="kwami wayzz" title="Ulubione postacie">
+    <div class="kwami wayzz" title="Ulubione postacie" data-section="characters">
       <a href="#characters" class="kwami-link">
-        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Wayzz.webp" alt="Wayzz">
+        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Wayzz.webp" alt="Wayzz - Ulubione postacie">
+      </a>
+    </div>
+    <div class="kwami trixx" title="Moi Sojusznicy" data-section="allies">
+      <a href="#allies" class="kwami-link">
+        <img src="https://www.miraculousladybug.com/wp-content/uploads/2024/03/Trixx.webp" alt="Trixx - Moi Sojusznicy">
       </a>
     </div>
   </nav>
@@ -82,42 +86,14 @@
           <img src="img/mlb.jpg" alt="Miraculous">
         </div>
         <div class="about-text">
-          <p>Mam na imię Kuni, mam 20 lat i jestem programistą. Na co dzień piszę kod, rozwiązuję problemy logiczne i siedzę w świecie technologii – ale w moim sercu od lat jest też zupełnie inny świat: Miraculous: Biedronka i Czarny Kot.
+          <p>Hej, jestem Kuni. Mam 20 lat i na co dzień siedzę w programowaniu – lubię układać kod tak, żeby wszystko działało, rozkminiać problemy i szukać rozwiązań, które czasem wkurzają, a czasem dają niesamowitą satysfakcję. To trochę jak łamigłówki, które nigdy się nie kończą, i właśnie w tym mam frajdę.
 
-Tak, wiem co sobie myślisz. Animacja? Dla dzieci? Tylko spróbuj to powiedzieć na głos – zagryzę cię. 😄
-Bo Miraculous to nie tylko kolorowa kreskówka. To historia, która dorasta razem z widzami. Jest w niej wszystko: emocje, złożone relacje, samotność, poświęcenie i walka o to, żeby być sobą w świecie, który często wymaga od nas noszenia masek – czasem dosłownie, czasem metaforycznie.
+Ale nie wszystko w moim życiu kręci się wokół technologii. Od lat mam też coś zupełnie innego, co daje mi dużo radości i emocji – świat Miraculous: Biedronka i Czarny Kot. To dla mnie nie tylko kreskówka, ale opowieść, która zawsze potrafi poprawić humor, wzruszyć albo po prostu przenieść w miejsce, gdzie wszystko wydaje się bardziej kolorowe i magiczne.
+
+I tak właśnie balansuję między dwoma światami – tym logicznym i technicznym, a tym emocjonalnym i pełnym wyobraźni. Dzięki temu czuję, że jestem po prostu sobą, bez udawania i bez schematów.
 
 </p>
           <p class="quote">"Mam szczęście, że zawsze będę miał Ciebie!"</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fanfiction -->
-  <section id="fanfic" class="fanfic-section">
-    <div class="container">
-      <h2 class="section-title cat">Mój Fanfiction</h2>
-      <div class="fanfic-card">
-        <div class="fanfic-image">
-          <img src="https://img.wattpad.com/cover/395032032-256-k401323.jpg" alt="Adrien w Sejmie">
-        </div>
-        <div class="fanfic-info">
-          <h3>Adrien w Sejmie</h3>
-          <p>Co by było, gdyby Adrien i postanowił startować w wyborach do Sejmu? Jak poradziłby sobie w polskiej polityce?</p>
-          <a href="https://www.wattpad.com/story/395032032-miraculous-adrien-w-sejmie" target="_blank" class="miraculous-button">Czytaj na Wattpad</a>
-          <div class="stats-counter">
-            <div class="stat-item">
-              <i class="fas fa-heart"></i>
-              <span class="count" data-count="1354">0</span>
-              <span>polubień</span>
-            </div>
-            <div class="stat-item">
-              <i class="fas fa-eye"></i>
-              <span class="count" data-count="6729">0</span>
-              <span>wyświetleń</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -229,6 +205,102 @@ Bo Miraculous to nie tylko kolorowa kreskówka. To historia, która dorasta raze
       
   </section>
 
+  <!-- Sojusznicy -->
+  <section id="allies" class="allies-section">
+    <div class="container">
+      <h2 class="section-title ladybug" data-translate="allies">Moi Sojusznicy</h2>
+      <p class="allies-intro" data-translate="alliesDesc">Każdy bohater potrzebuje drużyny. Poznaj moich sojuszników, którzy tak jak posiadacze Miraculum, mają wyjątkowe talenty i moce!</p>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow left"><i class="fas fa-chevron-left"></i></div>
+        <p class="scroll-hint" data-translate="scrollIndicator">Przewiń w poziomie</p>
+        <div class="scroll-arrow right"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      
+      <div class="allies-grid">
+        <!-- Sojusznik 1 -->
+        <div class="ally-card">
+          <div class="ally-avatar">
+            <img src="img/kromek.png" alt="Kromek">
+          </div>
+          <div class="ally-info">
+            <h3>Kromek</h3>
+            <p class="ally-role" style="background-color: rgba(229, 57, 53, 0.15); color: #E53935;">Youtuber & Programista</p>
+            <p class="ally-desc">Kromek to taki typ, który łączy w sobie luzaka i technicznego mózga. Jego moc? Montaż i kod – potrafi skleić w całość rzeczy, które wyglądają jak kompletny chaos.</p>
+            <div class="ally-socials">
+              <a href="https://www.youtube.com/@RealKromka" target="_blank" class="ally-social-icon">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://www.instagram.com/kromkareal/" target="_blank" class="ally-social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://kromek.cat" target="_blank" class="ally-social-icon">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sojusznik 2 -->
+        <div class="ally-card">
+          <div class="ally-avatar">
+            <img src="img/des.webp" alt="Des">
+          </div>
+          <div class="ally-info">
+            <h3>Des</h3>
+            <p class="ally-role" style="background-color: rgba(50, 205, 50, 0.15); color: rgb(50, 205, 50);">RYSOWNIK</p>
+            <p class="ally-desc">Des to prawdziwy artystyczny wojownik. Jego kreska to magia, która potrafi zmienić zwykłą kartkę w coś, co żyje. W trudnych czasach był obok, jakby miał w sobie Tikki.</p>
+            <div class="ally-socials">
+              <a href="https://x.com/desytt1" target="_blank" class="ally-social-icon twitter-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sojusznik 3 -->
+        <div class="ally-card">
+          <div class="ally-avatar">
+            <img src="img/suni.jpg" alt="Suni">
+          </div>
+          <div class="ally-info">
+            <h3>Suni</h3>
+            <p class="ally-role" style="background-color: rgba(255, 152, 0, 0.15); color: #FF9800;">Mistrz Photoshopa</p>
+            <p class="ally-desc">Suni to czarodziej od obrazów – serio, jakby miał Miraculum Iluzji. To on pokazał mi, jak wchodzić w świat posterów i grafik. Zawsze obok, jak Luka – spokojny, szczery, niezawodny.</p>
+            <div class="ally-socials">
+              <a href="https://www.instagram.com/sunigraphics/" target="_blank" class="ally-social-icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://t.me/sunigraphics" target="_blank" class="ally-social-icon">
+                <i class="fab fa-telegram"></i>
+              </a>
+              <a href="https://suni-graphics.myportfolio.com/" target="_blank" class="ally-social-icon">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sojusznik 4 -->
+        <div class="ally-card">
+          <div class="ally-avatar">
+            <img src="img/jedynek.webp" alt="Jedynek">
+          </div>
+          <div class="ally-info">
+            <h3>Jedynek</h3>
+            <p class="ally-role" style="background-color: rgba(0, 171, 102, 0.15); color: #00AB66;">Grafik & Twórca Botów</p>
+            <p class="ally-desc">Jedynek to taki „techno-mag" – jego Miraculum byłoby pewnie coś w stylu Mechanicznego Serca. Tworzy boty, które działają jak cisi strażnicy, a przy tym ogarnia grafikę z lekkością.</p>
+            <div class="ally-socials">
+              <a href="https://guns.lol/jedynek_pl" target="_blank" class="ally-social-icon">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Stopka -->
   <footer>
     <div class="miraculous-pattern"></div>
@@ -252,5 +324,8 @@ Bo Miraculous to nie tylko kolorowa kreskówka. To historia, która dorasta raze
   </div>
 
   <script src="js/miraculous.js"></script>
+  <script src="js/lastfm-widget.js"></script>
+  <script src="js/mobile.js"></script>
+  <script src="js/allies.js"></script>
 </body>
 </html>

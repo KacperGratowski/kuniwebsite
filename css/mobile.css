@@ -1,0 +1,183 @@
+/* Mobile Styles for Miraculous Theme */
+
+/* Tylko style mobilne - dodane jako oddzielny plik dla lepszej organizacji */
+@media (max-width: 768px) {
+    /* Nawigacja Kwami - zmieniona na dolny pasek */
+    .kwami-nav {
+        flex-direction: row;
+        gap: 10px;
+        top: auto;
+        right: auto;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(15, 15, 26, 0.85);
+        padding: 8px 12px;
+        border-radius: 40px;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--ladybug-red);
+        justify-content: center;
+        width: auto;
+        max-width: 90%;
+    }
+
+    /* Mniejsze ikony Kwami na mobile */
+    .kwami {
+        width: 45px;
+        height: 45px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+    }
+    
+    /* Style dla aktywnej sekcji w nawigacji */
+    .kwami.active {
+        border: 2px solid var(--ladybug-red);
+        box-shadow: 0 0 10px var(--ladybug-red);
+        transform: scale(1.1);
+    }
+    
+    /* Efekt dotknięcia dla urządzeń mobilnych */
+    .kwami-touch {
+        animation: touch-pulse 0.3s ease-out;
+    }
+    
+    @keyframes touch-pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    /* Przełącznik języków */
+    .language-panel {
+        top: auto;
+        left: auto;
+        right: 15px;
+        bottom: 70px;
+        transform: none;
+        padding: 6px;
+        border-radius: 25px;
+        z-index: 1001; /* Wyższy z-index niż kwami-nav */
+    }
+
+    .lang-button {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    /* Globalne paddingii sekcji */
+    section {
+        padding-bottom: 90px !important; /* Dodatkowy padding dla nawigacji na dole */
+    }
+
+    /* Hero section adjustments */
+    .miraculous-box .inner-box {
+        padding: 30px 15px;
+    }
+
+    /* Footer adjustment */
+    footer {
+        padding-bottom: 80px;
+    }
+
+    /* Tooltip poprawki dla mobilnych urządzeń */
+    [title]:hover:after {
+        display: none; /* Wyłącz tooltipy na urządzeniach mobilnych */
+    }
+    
+    /* Animacja wskazująca na możliwość przewijania */
+    .allies-grid {
+        position: relative;
+    }
+    
+    .allies-grid::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        width: 30px;
+        height: 50px;
+        background: linear-gradient(to right, transparent, rgba(15, 15, 26, 0.8));
+        border-radius: 0 10px 10px 0;
+        transform: translateY(-50%);
+        pointer-events: none;
+        animation: pulseIndicator 2s infinite;
+    }
+    
+    @keyframes pulseIndicator {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 0.9; }
+    }
+    
+    /* Mobilne powiadomienie o przewijaniu */
+    .allies-section .scroll-hint {
+        display: block;
+        text-align: center;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 5px;
+        font-style: italic;
+        transition: opacity 0.3s ease;
+    }
+    
+    .allies-section .scroll-hint.hide {
+        opacity: 0;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .kwami {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .language-panel {
+        top: 15px;
+        left: 15px;
+    }
+}
+
+/* Bardzo małe ekrany (iPhone SE itp.) */
+@media (max-width: 380px) {
+    .kwami-nav {
+        padding: 6px 8px;
+    }
+    
+    .kwami {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .language-panel {
+        bottom: 65px;
+        right: 10px;
+    }
+    
+    .lang-button {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Orientacja pozioma na telefonach */
+@media (max-height: 500px) and (orientation: landscape) {
+    .kwami-nav {
+        bottom: 5px;
+        padding: 5px 10px;
+    }
+    
+    .kwami {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .language-panel {
+        bottom: 55px;
+    }
+    
+    section {
+        padding-bottom: 60px !important;
+    }
+}

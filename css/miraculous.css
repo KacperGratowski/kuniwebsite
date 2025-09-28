@@ -116,6 +116,7 @@ a {
 .lang-button.active {
   transform: scale(1.1);
   box-shadow: 0 0 15px currentColor;
+  border: 2px solid white;
 }
 
 .lang-button.active::after {
