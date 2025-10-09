@@ -595,7 +595,7 @@ aboutText1: "Hej, jestem Kuni. Mam 20 lat i na co dzień siedzę w programowaniu
     catNoirName: 'Czarny Kot',
     ladybugQuote: 'Szczęśliwy traf!',
     catNoirQuote: 'Kotaklizm!',
-    copyright: '© 2025 Kuni_MLB. Wszystkie prawa zastrzeżone.',
+    copyright: '© 2025 Kuni_MLB && Aethers Media Group. Wszystkie prawa zastrzeżone.',
     easterEggTitle: 'Znalazłeś Sekret Miraculum!',
     easterEggText: 'W pewnym miejscu w Paryżu, starzec o imieniu Wang Fu strzeże sekretów Miraculum. Teraz ty też jesteś częścią tej tajemnicy!',
     close: 'Zamknij',
@@ -608,7 +608,6 @@ aboutText1: "Hej, jestem Kuni. Mam 20 lat i na co dzień siedzę w programowaniu
   languageContent.en = {
     title: 'Kuni_MLB',
     subtitle: 'Miraculous fan. Developer. Content creator.',
-    status: 'Status: taken by agulina1992_2',
     aboutTitle: 'About Me',
     alliesTitle: 'My Allies',
     alliesIntro: 'Every hero needs a team. Meet my allies who, just like Miraculous holders, have unique talents and powers!',
@@ -647,7 +646,7 @@ aboutText2: "Yeah, I know what you're thinking. Animation? For kids? Say that ou
     catNoirName: 'Cat Noir',
     ladybugQuote: 'Lucky Charm!',
     catNoirQuote: 'Cataclysm!',
-    copyright: '© 2025 Kuni_MLB. All rights reserved.',
+    copyright: '© 2025 Kuni_MLB && Aethers Media Group. All rights reserved.',
     easterEggTitle: 'You Found the Miraculous Secret!',
     easterEggText: 'In a place in Paris, an old man named Wang Fu guards the secrets of the Miraculous. Now you are part of this secret too!',
     close: 'Close',
@@ -660,7 +659,6 @@ aboutText2: "Yeah, I know what you're thinking. Animation? For kids? Say that ou
   languageContent.fr = {
     title: 'Kuni_MLB',
     subtitle: 'Fan de Miraculous. Développeur. Créateur de contenu.',
-    status: 'Statut: en couple avec agulina1992_2',
     aboutTitle: 'À Propos de Moi',
     alliesTitle: 'Mes Alliés',
     alliesIntro: 'Chaque héros a besoin d\'une équipe. Rencontrez mes alliés qui, comme les porteurs de Miraculous, ont des talents et des pouvoirs uniques !',
@@ -694,7 +692,7 @@ aboutText2: "Yeah, I know what you're thinking. Animation? For kids? Say that ou
     catNoirName: 'Chat Noir',
     ladybugQuote: 'Lucky Charm!',
     catNoirQuote: 'Cataclysme!',
-    copyright: '© 2025 Kuni_MLB. Tous droits réservés.',
+    copyright: '© 2025 Kuni_MLB && Aethers Media Group. Tous droits réservés.',
     easterEggTitle: 'Vous avez trouvé le secret Miraculous!',
     easterEggText: 'Dans un endroit à Paris, un vieil homme nommé Wang Fu garde les secrets des Miraculous. Maintenant, vous faites aussi partie de ce secret!',
     close: 'Fermer',
@@ -874,4 +872,5 @@ aboutText2: "Yeah, I know what you're thinking. Animation? For kids? Say that ou
 
   // Uruchom inicjalizację
   init();
+
 });
