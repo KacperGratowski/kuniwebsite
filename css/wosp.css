@@ -1,0 +1,257 @@
+/* WOŚP Popup Styles - Miraculous Theme */
+:root {
+  --mlb-red: #F80000;
+  --mlb-black: #111111;
+  --mlb-dark-bg: #0F0F1A;
+  --mlb-text: #FFFFFF;
+  --mlb-font: 'Montserrat', sans-serif;
+}
+
+.wosp-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.wosp-popup-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wosp-miraculous-card {
+  background-color: var(--mlb-dark-bg);
+  width: 90%;
+  max-width: 800px; /* Wider */
+  border-radius: 25px;
+  position: relative;
+  padding: 40px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 2px rgba(255, 255, 255, 0.1);
+  transform: scale(0.9);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: left; /* Left align */
+  overflow: hidden;
+  z-index: 999;
+}
+
+/* Background Pattern (Dots) */
+.wosp-miraculous-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Red Glow Accent */
+.wosp-miraculous-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(248, 0, 0, 0.15), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wosp-popup-overlay.show .wosp-miraculous-card {
+  transform: scale(1);
+}
+
+.wosp-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  align-items: center;
+  gap: 40px;
+}
+
+/* Logo */
+.wosp-logo-section {
+  flex-shrink: 0;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+.wosp-logo-img {
+  width: 180px; /* Larger logo */
+  height: auto;
+  filter: drop-shadow(0 0 15px rgba(248, 0, 0, 0.4));
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Info Section */
+.wosp-info-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Typography */
+.wosp-heading {
+  font-family: var(--mlb-font);
+  font-weight: 800;
+  font-size: 32px; /* Larger font */
+  color: var(--mlb-text);
+  margin-bottom: 15px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.red-text {
+  color: var(--mlb-red);
+  display: block;
+  font-size: 1.2em;
+}
+
+.wosp-text-content {
+  font-family: var(--mlb-font);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Button */
+.wosp-action-button {
+  display: inline-block;
+  background-color: var(--mlb-red);
+  color: white;
+  font-family: var(--mlb-font);
+  font-weight: 700;
+  font-size: 16px;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(248, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wosp-action-button:hover {
+  background-color: #d60000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(248, 0, 0, 0.5);
+}
+
+/* Close Button */
+.wosp-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  z-index: 10;
+  font-size: 20px;
+}
+
+.wosp-close-btn:hover {
+  background: var(--mlb-red);
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* Signature */
+.wosp-footer-signature {
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+  pointer-events: none; /* Allows clicking through the signature */
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.wosp-footer-signature img {
+  height: 140px; /* Large and visible */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  transform: rotate(-5deg);
+}
+
+/* Floating Hearts Animation */
+.wosp-floating-heart {
+  position: fixed;
+  bottom: -100px;
+  z-index: 20001; /* Above everything */
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .wosp-miraculous-card {
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+
+  .wosp-card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .wosp-info-section {
+    align-items: center;
+  }
+
+  .wosp-logo-img {
+    width: 100px;
+  }
+
+  .wosp-heading {
+    font-size: 24px;
+  }
+
+  .wosp-footer-signature {
+    align-self: center;
+  }
+}
+
