@@ -166,7 +166,10 @@ function changeLanguage(languageCode) {
   document.querySelectorAll('.lang-button').forEach(button => {
     button.classList.remove('active');
   });
-  document.querySelector(`.lang-button.${languageCode}`).classList.add('active');
+  const activeButton = document.querySelector(`.lang-button.${languageCode}`);
+  if (activeButton) {
+    activeButton.classList.add('active');
+  }
   
   // Update all elements with data-translate attribute
   document.querySelectorAll('[data-translate]').forEach(element => {
