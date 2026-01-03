@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuni_MLB - Fursona</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/miraculous.css">
+  <link rel="stylesheet" href="css/lastfm-widget.css">
+  <link rel="stylesheet" href="css/allies.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/wosp.css">
+  <script src="js/translations.js" defer></script>
+  <style>
+    /* Styl podstrony z efektami "WOW" */
+    body {
+      overflow-y: auto;
+    }
+
+    /* Animacje */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatAvatar {
+      0% { transform: translateY(0px); box-shadow: 0 0 30px rgba(173, 253, 0, 0.3); }
+      50% { transform: translateY(-15px); box-shadow: 0 0 50px rgba(173, 253, 0, 0.5); }
+      100% { transform: translateY(0px); box-shadow: 0 0 30px rgba(173, 253, 0, 0.3); }
+    }
+
+    @keyframes scanline {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
+    @keyframes pulseGlow {
+      from { opacity: 0.3; transform: translateX(-50%) scale(0.8); }
+      to { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+    }
+
+    @keyframes particleFloat {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.8; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .subpage-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 120px 20px 60px;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Dekoracyjna poświata w tle */
+    .subpage-container::before {
+      content: '';
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80vw;
+      height: 80vw;
+      max-width: 800px;
+      max-height: 800px;
+      background: radial-gradient(circle, rgba(173, 253, 0, 0.15) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+      animation: pulseGlow 6s ease-in-out infinite alternate;
+    }
+
+    /* Pływające cząsteczki (Particles) */
+    .particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      width: 10px;
+      height: 10px;
+      background: rgba(173, 253, 0, 0.4);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(173, 253, 0, 0.6);
+      animation: particleFloat 15s linear infinite;
+    }
+
+    .particle:nth-child(1) { left: 10%; width: 8px; height: 8px; animation-duration: 12s; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; width: 12px; height: 12px; animation-duration: 18s; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 35%; width: 6px; height: 6px; animation-duration: 10s; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 50%; width: 10px; height: 10px; animation-duration: 15s; animation-delay: 1s; }
+    .particle:nth-child(5) { left: 65%; width: 14px; height: 14px; animation-duration: 20s; animation-delay: 3s; }
+    .particle:nth-child(6) { left: 80%; width: 8px; height: 8px; animation-duration: 13s; animation-delay: 5s; }
+    .particle:nth-child(7) { left: 90%; width: 11px; height: 11px; animation-duration: 16s; animation-delay: 2s; }
+
+    .fursona-card {
+      background: rgba(10, 10, 18, 0.8); 
+      border: 1px solid transparent; /* Gradient border trick */
+      border-radius: 24px;
+      padding: 50px;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.6),
+        inset 0 0 30px rgba(173, 253, 0, 0.05);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+      background-clip: padding-box;
+      
+      /* Efekty wejścia i interakcji */
+      animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Gradient Border */
+    .fursona-card::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(173, 253, 0, 0.4), transparent 40%, transparent 60%, rgba(173, 253, 0, 0.4));
+    }
+
+    /* Efekt skanowania "Tech" - subtelniejszy */
+    .scanline-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 50%, rgba(173, 253, 0, 0.02) 51%, transparent 52%);
+      background-size: 100% 8px;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 24px;
+    }
+
+    .scanline-beam {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to bottom, rgba(173, 253, 0, 0.05), transparent);
+      animation: scanline 4s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .fursona-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(173, 253, 0, 0.15);
+    }
+
+    .fursona-header {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 50px;
+      border-bottom: 1px solid rgba(173, 253, 0, 0.2);
+      padding-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fursona-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid var(--cat-noir-green);
+      object-fit: cover;
+      box-shadow: 0 0 30px rgba(173, 253, 0, 0.3);
+      
+      /* Animacja avatara */
+      animation: floatAvatar 6s ease-in-out infinite;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .fursona-avatar:hover {
+      transform: scale(1.1) rotate(5deg);
+      cursor: pointer;
+      animation-play-state: paused;
+    }
+
+    .header-text h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 4rem;
+      margin: 0 0 10px 0;
+      
+      /* Gradientowy tekst */
+      background: linear-gradient(to right, var(--cat-noir-green) 20%, #fff 50%, var(--cat-noir-green) 80%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 4s linear infinite;
+      text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .header-text p {
+      color: #ccc;
+      font-size: 1.3rem;
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .fursona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-section h2 {
+      color: var(--cat-noir-green);
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      text-shadow: 0 0 10px rgba(173, 253, 0, 0.3);
+    }
+    
+    .info-section h2 i {
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 5px var(--cat-noir-green));
+    }
+    
+    .info-section:hover h2 i {
+      transform: rotate(20deg) scale(1.2);
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .info-list li {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      /* Styl "Data Chip" */
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .info-list li:hover {
+      background: rgba(173, 253, 0, 0.1);
+      padding-left: 25px;
+      border-color: var(--cat-noir-green);
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .info-label {
+      color: var(--cat-noir-green);
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .description {
+      line-height: 1.8;
+      color: #e0e0e0;
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+      background: rgba(0,0,0,0.2);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s;
+    }
+    
+    .description:hover {
+      border-color: rgba(173, 253, 0, 0.3);
+      background: rgba(0,0,0,0.3);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    }
+
+    .ref-sheet-container {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-radius: 20px;
+      border: 1px solid rgba(173, 253, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 100%;
+    }
+    
+    .ref-sheet-container:hover {
+      border-color: var(--cat-noir-green);
+      box-shadow: 0 15px 40px rgba(173, 253, 0, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .ref-sheet-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      transition: transform 0.5s ease;
+    }
+    
+    .ref-sheet-container:hover img {
+      transform: scale(1.02);
+    }
+
+    .ref-caption {
+      text-align: center;
+      color: #aaa;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    /* Paleta kolorów */
+    .palette-grid {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .palette-swatch {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .palette-swatch:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      z-index: 2;
+      border-color: #fff;
+    }
+    
+    .palette-swatch::after {
+      content: attr(data-color);
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.9);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+      color: #fff;
+      border: 1px solid var(--cat-noir-green);
+    }
+    
+    .palette-swatch:hover::after {
+      opacity: 1;
+    }
+
+    /* Lubię / Nie lubię */
+    .likes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .likes-column h3 {
+      font-family: 'Permanent Marker', cursive;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    
+    .likes-column.likes h3 { color: var(--cat-noir-green); }
+    .likes-column.dislikes h3 { color: #ff4444; }
+    
+    .likes-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .likes-list li {
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .likes-list li:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateX(3px);
+    }
+    
+    .likes-column.likes li:hover { border-color: rgba(173, 253, 0, 0.3); }
+    .likes-column.dislikes li:hover { border-color: rgba(255, 68, 68, 0.3); }
+    
+    .likes-list li i {
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* Tagi Cech (Traits) */
+    .traits-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .trait-tag {
+      background: rgba(173, 253, 0, 0.1);
+      border: 1px solid rgba(173, 253, 0, 0.3);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .trait-tag:hover {
+      background: var(--cat-noir-green);
+      color: #000;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 5px 15px rgba(173, 253, 0, 0.4);
+      cursor: default;
+    }
+
+    /* Status Widget */
+    .status-widget {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: rgba(0,0,0,0.3);
+      padding: 15px 20px;
+      border-radius: 15px;
+      border: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 30px;
+      backdrop-filter: blur(5px);
+    }
+
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      background: #00ff00;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00ff00;
+      animation: pulseStatus 2s infinite;
+    }
+
+    @keyframes pulseStatus {
+      0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+    }
+
+    .status-text {
+      display: flex;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    .status-label {
+      color: #aaa;
+      font-weight: 600;
+    }
+
+    .status-value {
+      color: var(--cat-noir-green);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Przycisk powrotu */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: bold;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 30px;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: #000;
+      background: var(--cat-noir-green);
+      transform: translateX(-5px);
+      box-shadow: 0 0 15px var(--cat-noir-green);
+    }
+
+    /* Language Switcher dla podstrony */
+    .subpage-lang-panel {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      border-radius: 30px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @media (max-width: 900px) {
+      .fursona-grid {
+        grid-template-columns: 1fr;
+      }
+      .fursona-header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header-text h1 {
+        font-size: 2.5rem;
+      }
+      .subpage-lang-panel {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="miraculous-bg"></div>
+  
+
+
+
+
+  <!-- Pływające cząsteczki tła -->
+  <div class="particles-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="subpage-container">
+    <a href="index.html" class="back-link" data-translate="backToHome">
+      <i class="fas fa-arrow-left"></i> Powrót do strony głównej
+    </a>
+
+    <div class="fursona-card">
+      <!-- Elementy dekoracyjne karty -->
+      <div class="scanline-overlay"></div>
+      <div class="scanline-beam"></div>
+
+      <div class="fursona-header">
+        <img src="img/sona/headshot.png" alt="Kuni Avatar" class="fursona-avatar">
+        <div class="header-text">
+          <h1>Kuni</h1>
+          <p data-translate="fursonaSubtitle">Moja Fursona</p>
+        </div>
+      </div>
+
+      <div class="fursona-grid">
+        <!-- Lewa kolumna: Info -->
+        <div class="info-column">
+          <!-- Status Widget -->
+          <div class="status-widget">
+            <div class="status-indicator"></div>
+            <div class="status-text">
+              <span class="status-label" data-translate="statusLabel">Status:</span>
+              <span class="status-value" data-translate="statusValue">Dostępny</span>
+            </div>
+          </div>
+
+          <div class="info-section">
+            <h2 data-translate="infoTitle"><i class="fas fa-paw"></i> Informacje</h2>
+            <ul class="info-list">
+              <li>
+                <span class="info-label" data-translate="speciesLabel">Gatunek:</span>
+                <span data-translate="speciesValue">Kot (Felis Catus)</span>
+              </li>
+              <li>
+                <span class="info-label" data-translate="nameLabel">Imię:</span>
+                <span>Kuni</span>
+              </li>
+              <li>
+                <span class="info-label" data-translate="genderLabel">Płeć:</span>
+                <span data-translate="genderValue">Samiec</span>
+              </li>
+              <li>
+                <span class="info-label" data-translate="ageLabel">Wiek:</span>
+                <span>21</span>
+              </li>
+              <li>
+                <span class="info-label" data-translate="styleLabel">Styl:</span>
+                <span>Tech / Miraculous</span>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <!-- Prawa kolumna: Ref Sheet -->
+        <div class="ref-column">
+          <div class="info-section">
+            <h2 data-translate="refTitle"><i class="fas fa-image"></i> Reference Sheet</h2>
+            <div class="ref-sheet-container">
+              <img src="img/sona/ref.png" alt="Kuni Reference Sheet">
+              <div class="ref-caption" data-translate="refCaption">Oficjalny arkusz referencyjny (2026)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cechy i Paleta (Nowy Grid) -->
+      <div class="details-grid">
+        <!-- Cechy (Traits) -->
+        <div class="info-section">
+          <h2 data-translate="traitsTitle"><i class="fas fa-star"></i> Cechy</h2>
+          <div class="traits-container">
+            <span class="trait-tag" data-translate="trait1">Introwertyk</span>
+            <span class="trait-tag" data-translate="trait2">Nocny Marek</span>
+            <span class="trait-tag" data-translate="trait3">Empatyczny</span>
+            <span class="trait-tag" data-translate="trait4">Analityczny</span>
+          </div>
+        </div>
+
+        <!-- Paleta Kolorów -->
+        <div class="info-section">
+          <h2 data-translate="paletteTitle"><i class="fas fa-palette"></i> Paleta</h2>
+          <div class="palette-grid">
+            <div class="palette-swatch" style="background: #111111;" data-color="#111111"></div>
+            <div class="palette-swatch" style="background: #2a2a2a;" data-color="#2a2a2a"></div>
+            <div class="palette-swatch" style="background: #ADFD00;" data-color="#ADFD00"></div>
+            <div class="palette-swatch" style="background: #C2FF33;" data-color="#C2FF33"></div>
+            <div class="palette-swatch" style="background: #FFFFFF;" data-color="#FFFFFF"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lubię / Nie lubię (Pełna szerokość) -->
+      <div class="info-section" style="margin-top: 50px;">
+        <div class="likes-grid">
+          <div class="likes-column likes">
+            <h3 data-translate="likesTitle">Lubię</h3>
+            <ul class="likes-list">
+              <li><i class="fas fa-check"></i> <span data-translate="like1">Technologia</span></li>
+              <li><i class="fas fa-check"></i> <span data-translate="like2">Nocne spacery</span></li>
+              <li><i class="fas fa-check"></i> <span data-translate="like3">Muzyka</span></li>
+              <li><i class="fas fa-check"></i> <span data-translate="like4">Spokój</span></li>
+              <li><i class="fas fa-check"></i> <span data-translate="like5">Gry wideo</span></li>
+              <li><i class="fas fa-check"></i> <span data-translate="like6">Deszcz</span></li>
+            </ul>
+          </div>
+          <div class="likes-column dislikes">
+            <h3 data-translate="dislikesTitle">Nie lubię</h3>
+            <ul class="likes-list">
+              <li><i class="fas fa-times"></i> <span data-translate="dislike1">Hałas</span></li>
+              <li><i class="fas fa-times"></i> <span data-translate="dislike2">Tłumy</span></li>
+              <li><i class="fas fa-times"></i> <span data-translate="dislike3">Upały</span></li>
+              <li><i class="fas fa-times"></i> <span data-translate="dislike4">Kłamstwa</span></li>
+              <li><i class="fas fa-times"></i> <span data-translate="dislike5">Pośpiech</span></li>
+              <li><i class="fas fa-times"></i> <span data-translate="dislike6">Dramy</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sekcja O postaci (pod spodem) -->
+      <div class="info-section" style="margin-top: 50px;">
+        <h2 data-translate="aboutTitle"><i class="fas fa-info-circle"></i> O postaci</h2>
+        <div class="description">
+          <p data-translate="aboutDesc1">
+            Kuni to spokojna, cicha dusza. Nie musi być w centrum uwagi - najlepiej czuje się wtedy, gdy może obserwować, słuchać i być sobą, bez presji. Jest typem, który najpierw patrzy, myśli, a dopiero potem mówi. Dzięki temu często widzi więcej niż inni.
+          </p>
+          <p data-translate="aboutDesc2">
+            Ma w sobie dużo empatii i zrozumienia. Potrafi słuchać naprawdę, a nie tylko czekać na swoją kolej. Jeśli ktoś do niego przyjdzie z problemem, Kuni nie bagatelizuje — raczej spróbuje zrozumieć emocje i dać poczucie bezpieczeństwa. Jest delikatny w obyciu, nawet jeśli nie zawsze umie to ubrać w idealne słowa.
+          </p>
+          <p data-translate="aboutDesc3">
+            Jest wrażliwy, ale w cichy sposób. Przeżywa rzeczy głęboko, często wewnętrznie. Ma tendencję do rozmyślania, analizowania rozmów i sytuacji, ale nie dlatego, że coś jest nie tak — tylko dlatego, że mu zależy. Uczucia są dla niego ważne, nawet jeśli nie zawsze potrafi je od razu okazać.
+          </p>
+          <p data-translate="aboutDesc4">
+            W relacjach jest lojalny i oddany. Gdy kogoś polubi lub pokocha, robi to szczerze i na długo. Potrzebuje czasu, żeby się otworzyć, ale gdy już to zrobi, staje się ciepłym, wspierającym towarzyszem — kimś, kto zostaje nawet wtedy, gdy jest trudno.
+          </p>
+          <p data-translate="aboutDesc5">
+            Ma też w sobie łagodny humor — raczej subtelny niż głośny. Lubi drobne żarty, uśmiechy, momenty ciszy, które nie są niezręczne, tylko komfortowe. Jest typem osoby, przy której można po prostu być, bez udawania.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+  <script src="js/translations.js"></script>
+  <script src="js/miraculous.js"></script>
+  <script src="js/mobile.js"></script>
+</body>
+</html>

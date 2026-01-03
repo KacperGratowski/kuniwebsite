@@ -165,7 +165,8 @@ a {
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  position: relative; /* For tooltip positioning */
+  z-index: 10; /* Ensure kwami is above tooltip */
 }
 
 .kwami img {
@@ -205,6 +206,35 @@ a {
   0%, 100% { transform: translateY(-5px) rotate(0deg); }
   25% { transform: translateY(-5px) rotate(-10deg); }
   75% { transform: translateY(-5px) rotate(10deg); }
+}
+
+/* Kwami Tooltip - Sliding Effect */
+.kwami::after {
+  content: attr(title);
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Start hidden behind the kwami */
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  z-index: -1; /* Behind the kwami */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy slide */
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  font-family: 'Montserrat', sans-serif;
+  backdrop-filter: blur(5px);
+}
+
+.kwami:hover::after {
+  opacity: 1;
+  right: 70px; /* Slide out to the left */
 }
 
 /* Hero Section - Miraculous Box */
