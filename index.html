@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="css/lastfm-widget.css">
   <link rel="stylesheet" href="css/allies.css">
   <link rel="stylesheet" href="css/mobile.css">
-  <link rel="stylesheet" href="css/wosp.css">
-    <script src="js/wosp-popup.js" defer></script>
   <script src="js/translations.js" defer></script>
 </head>
 <body>
@@ -93,7 +91,7 @@
           <img src="img/mlb.jpg" alt="Miraculous">
         </div>
         <div class="about-text">
-          <p>Hej, jestem Kuni. Mam 20 lat i na co dzień siedzę w programowaniu – lubię układać kod tak, żeby wszystko działało, rozkminiać problemy i szukać rozwiązań, które czasem wkurzają, a czasem dają niesamowitą satysfakcję. To trochę jak łamigłówki, które nigdy się nie kończą, i właśnie w tym mam frajdę.
+          <p>Hej, jestem Kuni. Mam 21 lat i na co dzień siedzę w programowaniu – lubię układać kod tak, żeby wszystko działało, rozkminiać problemy i szukać rozwiązań, które czasem wkurzają, a czasem dają niesamowitą satysfakcję. To trochę jak łamigłówki, które nigdy się nie kończą, i właśnie w tym mam frajdę.
 
 Ale nie wszystko w moim życiu kręci się wokół technologii. Od lat mam też coś zupełnie innego, co daje mi dużo radości i emocji – świat Miraculous: Biedronka i Czarny Kot. To dla mnie nie tylko kreskówka, ale opowieść, która zawsze potrafi poprawić humor, wzruszyć albo po prostu przenieść w miejsce, gdzie wszystko wydaje się bardziej kolorowe i magiczne.
 
@@ -330,96 +328,6 @@ I tak właśnie balansuję między dwoma światami – tym logicznym i techniczn
     <button class="lang-button fr" title="Français"></button>
   </div>
 
-  <!-- WOŚP Start Screen (Click to interact) -->
-  <div id="wosp-start-screen" class="wosp-popup-overlay show" style="background-color: black; z-index: 20000;">
-    <button id="wosp-start-btn" style="background: none; border: none; color: white; font-family: 'Montserrat', sans-serif; font-size: 24px; cursor: pointer; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-transform: uppercase; letter-spacing: 2px;">
-        <span>KLIKNIJ, ABY WEJŚĆ NA STRONĘ</span>
-        <span style="font-size: 14px; margin-top: 15px; opacity: 0.6; font-weight: normal;">(Włącz dźwięk 🎵)</span>
-    </button>
-  </div>
-
-  <!-- WOŚP Popup - Miraculous Style -->
-  <div id="wosp-popup" class="wosp-popup-overlay">
-    <div class="wosp-miraculous-card">
-      <button id="wosp-close" class="wosp-close-btn">
-        <i class="fas fa-times"></i>
-      </button>
-      
-      <div class="wosp-card-content">
-        <div class="wosp-logo-section">
-           <img src="https://s-eskarbonka.wosp.org.pl/icon/wosp-logo.svg" alt="WOŚP" class="wosp-logo-img">
-           <div class="wosp-footer-signature">
-             <img src="img/podpis_white.png" alt="Kuni_MLB">
-           </div>
-        </div>
-        
-        <div class="wosp-info-section">
-          <h2 class="wosp-heading"><span class="red-text">GRAM Z WOŚP</span>SIEMA!</h2>
-          
-          <p class="wosp-text-content">
-            W tym roku ponownie dołączam do Wielkiej Orkiestry Świątecznej Pomocy.
-            Każda wpłata to super-moc dla dzieciaków! 🐞🔥
-          </p>
-
-          <!-- Real Stats -->
-          <div class="wosp-stats-real">
-             <div class="stat-box">
-                <span class="stat-value" id="wosp-amount">...</span>
-                <span class="stat-label">ZEBRANO</span>
-             </div>
-             <div class="stat-box">
-                <span class="stat-value" id="wosp-donations">...</span>
-                <span class="stat-label">WPŁAT</span>
-             </div>
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="wosp-goal-wrapper">
-            <div class="wosp-goal-info">
-              <span>Cel: <strong id="wosp-goal-target">...</strong> PLN</span>
-              <span id="wosp-goal-percent">0%</span>
-            </div>
-            <div class="wosp-progress-bar">
-              <div class="wosp-progress-fill" id="wosp-progress-fill" style="width: 0%"></div>
-            </div>
-          </div>
-
-          <div class="wosp-countdown-box">
-            <span class="countdown-label">DO 34. FINAŁU ZOSTAŁO:</span>
-            <div id="wosp-timer" class="countdown-timer">-- dni -- godz -- min</div>
-          </div>
-
-          <!-- QR Code Section -->
-          <div class="wosp-qr-section">
-            <div class="wosp-qr-code">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://eskarbonka.wosp.org.pl/gugijujely&color=000000&bgcolor=ffffff" alt="QR Code">
-            </div>
-            <div class="wosp-qr-text">
-              <p>Zeskanuj telefonem i wpłać szybko!</p>
-            </div>
-          </div>
-
-          <div class="wosp-actions">
-            <a href="https://eskarbonka.wosp.org.pl/gugijujely" target="_blank" class="wosp-action-button pulse-btn">
-              WPŁAĆ NA eSKARBONKĘ
-            </a>
-            <button id="wosp-share-btn" class="wosp-share-btn" title="Udostępnij">
-              <i class="fa-solid fa-share-nodes"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <audio id="wosp-audio" src="img/hymn_wosp.mp3" loop></audio>
-    </div>
-  </div>
-
-  <!-- Puszka Trigger -->
-  <div id="wosp-can-trigger" class="wosp-can-trigger" title="Wrzuć do puszki!">
-    <div class="wosp-speech-bubble">Pomóż dzieciom! 🐞</div>
-    <div class="wosp-badge">!</div>
-    <img src="img/puszka.png" alt="Puszka WOŚP">
-  </div>
-
   <script src="js/miraculous.js"></script>
   <script src="js/lastfm-widget.js"></script>
   <script src="js/mobile.js"></script>
@@ -427,6 +335,7 @@ I tak właśnie balansuję między dwoma światami – tym logicznym i techniczn
 
 </body>
 </html>
+
 
 
 
