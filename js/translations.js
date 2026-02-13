@@ -26,6 +26,67 @@ const translations = {
     "en": "Every hero needs a team. Meet my allies who, just like Miraculous holders, have unique talents and powers!",
     "fr": "Chaque héros a besoin d'une équipe. Rencontrez mes alliés qui, comme les porteurs de Miraculous, ont des talents et des pouvoirs uniques !"
   },
+  // Alliés
+  "kromekRole": {
+    "pl": "Youtuber & Programista",
+    "en": "YouTuber & Programmer",
+    "fr": "YouTuber & Programmeur"
+  },
+  "kromekDesc": {
+    "pl": "Kromek to taki typ, który łączy w sobie luzaka i technicznego mózga. Jego moc? Montaż i kod – potrafi skleić w całość rzeczy, które wyglądają jak kompletny chaos.",
+    "en": "Kromek is the type who combines a chill vibe with a tech brain. His power? Editing and code – he can piece together things that look like complete chaos.",
+    "fr": "Kromek est le genre de personne qui allie une ambiance détendue à un esprit technologique. Son pouvoir ? Le montage et le code – il peut assembler des choses qui ressemblent à un chaos total."
+  },
+  "desRole": {
+    "pl": "RYSOWNIK",
+    "en": "ARTIST",
+    "fr": "DESSINATEUR"
+  },
+  "desDesc": {
+    "pl": "Des to prawdziwy artystyczny wojownik. Jego kreska to magia, która potrafi zmienić zwykłą kartkę w coś, co żyje. W trudnych czasach był obok, jakby miał w sobie Tikki.",
+    "en": "Des is a true artistic warrior. His line work is magic that can turn a plain sheet of paper into something alive. In difficult times, he was there, as if he had Tikki in him.",
+    "fr": "Des est un véritable guerrier artistique. Son trait est de la magie qui peut transformer une simple feuille de papier en quelque chose de vivant. Dans les moments difficiles, il était là, comme s'il avait Tikki en lui."
+  },
+  "suniRole": {
+    "pl": "Mistrz Photoshopa",
+    "en": "Photoshop Master",
+    "fr": "Maître Photoshop"
+  },
+  "suniDesc": {
+    "pl": "Suni to czarodziej od obrazów – serio, jakby miał Miraculum Iluzji. To on pokazał mi, jak wchodzić w świat posterów i grafik. Zawsze obok, jak Luka – spokojny, szczery, niezawodny.",
+    "en": "Suni is an image wizard – seriously, like he has the Fox Miraculous of Illusion. He showed me how to enter the world of posters and graphics. Always there, like Luka – calm, sincere, reliable.",
+    "fr": "Suni est un sorcier de l'image – sérieusement, comme s'il avait le Miraculous du Renard. Il m'a montré comment entrer dans le monde des affiches et du graphisme. Toujours là, comme Luka – calme, sincère, fiable."
+  },
+  "jedynekRole": {
+    "pl": "Grafik & Twórca Botów",
+    "en": "Graphic Designer & Bot Creator",
+    "fr": "Graphiste & Créateur de Bots"
+  },
+  "jedynekDesc": {
+    "pl": "Jedynek to taki „techno-mag\" – jego Miraculum byłoby pewnie coś w stylu Mechanicznego Serca. Tworzy boty, które działają jak cisi strażnicy, a przy tym ogarnia grafikę z lekkością.",
+    "en": "Jedynek is like a \"techno-mage\" – his Miraculous would probably be something like a Mechanical Heart. He creates bots that act like silent guardians, all while handling graphics with effortless flair.",
+    "fr": "Jedynek est un genre de \"technomage\" – son Miraculous serait sans doute un truc comme le Cœur Mécanique. Il crée des bots qui agissent comme des gardiens silencieux, tout en gérant le graphisme avec une aisance naturelle."
+  },
+  "niverRole": {
+    "pl": "Programista JS",
+    "en": "JS Developer",
+    "fr": "Développeur JS"
+  },
+  "niverDesc": {
+    "pl": "Futrzak, który stawia innych ponad siebie, zawsze chętny do pomocy. Lubię sobie pokodować w JSie. Mam wielką chęć do nauczenia sie rysowania :3",
+    "en": "A furry who puts others before himself, always ready to lend a paw. I enjoy coding in JS and really want to learn how to draw :3",
+    "fr": "Un furry qui fait passer les autres avant lui, toujours prêt à aider. J'aime coder en JS et j'ai une grande envie d'apprendre le dessin :3"
+  },
+  "ky0oRole": {
+    "pl": "Aktor, Wokalista & Grafik",
+    "en": "Actor, Vocalist & Graphic Designer",
+    "fr": "Acteur, Chanteur & Graphiste"
+  },
+  "ky0oDesc": {
+    "pl": "Mam 18 lat i mieszkam w Krakowie. Jestem furrasem, a moja fursona to ten słodki lisek, na którego patrzysz! Moje pasje to aktorstwo i śpiew (robię to od dziecka!). Zajmuję się też grafiką, tłumaczeniami i graniem w gry.",
+    "en": "I'm 18 and live in Krakow. I'm a furry, and my fursona is this cute fox you're looking at! My passions are acting and singing (been doing it since I was a kid!). I also do graphic design, translations, and gaming.",
+    "fr": "J'ai 18 ans et j'habite à Cracovie. Je suis un furry et mon fursona est ce renard mignon que vous regardez ! Mes passions sont le théâtre et le chant (je fais ça depuis tout petit !). Je fais aussi du graphisme, de la traduction et des jeux vidéo."
+  },
   "scrollIndicator": {
     "pl": "← Przewiń →",
     "en": "← Scroll →",
